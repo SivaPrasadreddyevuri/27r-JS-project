@@ -5,6 +5,7 @@
     display: flex;
     height: 10px;
     justify-content: space-around;
+    /* gap: 500px; */
 
 }
 span{
@@ -16,6 +17,7 @@ span{
     border-radius: 10px;
     font-size: 18px;
     font-weight: bold;
+    background-color: aqua;
 }
 .div1{
     text-align: center;
