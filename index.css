@@ -9,7 +9,7 @@
 
 }
 span{
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     height:fit-content;
     padding: 10px;
     width: 80px;
@@ -56,4 +56,12 @@ span{
     width: 160px;
     background-color:greenyellow;
     border-radius: 10px;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+a:hover{
+    text-decoration: underline;
+    color:blue;
 }
