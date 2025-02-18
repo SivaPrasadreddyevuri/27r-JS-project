@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./bootstrap-5.3.3-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js">
     <style>
         body{
             background-color: black;
@@ -13,39 +11,64 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-image: url("https://arenarozzaq.my/wp-content/uploads/2017/06/bg_slide_1.jpg");
+            background-size:auto;
+            background-repeat: no-repeat;
         }
-        .sign-up{
-            background-color: white;
-            border: 2px solid;
+        #sign-up{
+            /* background-color:transparent; */
+            /* border: 2px solid; */
             padding: 20px;
             text-align: center;
             border-radius: 10px;
             width: 400px;
+            box-shadow: 1px 1px 8px grey ;
+            color:white;
             
         }
-        .sign-up input{
+        #sign-up input{
             width: 100%;
             height: 34px;
             border-radius: 5px;
             border: 1px solid gray;
             opacity: 0.7;
         }
-        input:hover{
-            opacity: 1;
-            border-color: greenyellow;
+        #sign-up input:hover{
+        border:3px solid green
+        }
+        a{
+            text-decoration: none;
+            color:white;
+        }
+        a:hover{
+            text-decoration: underline;
+            color: rgb(9, 186, 245);
         }
     </style>
 </head>
 <body>
-    <div class="sign-up">
+    <div id="sign-up">
         <h1>Seconds to sign up!</h1>
-        <form action="">
+        <form action="" id="sign-up_Form">
             <input type="text" placeholder="Full Name" required><br><br>
             <input type="email" placeholder="example@gmail.com" required><br><br>
             <input type="password"  placeholder="Password" required><br><br>
-            <input type="submit" value="Sign-Up">
-           <a href="./sign-in.html"><h3>Already Have An Account?</h3></a>
+            <input type="submit" value="Sign-Up"  style="background-color:rgb(6, 154, 252); border: none;" id="s_up">
+           <a href="./signin.html"><h3>Already Have An Account?</h3></a>
         </form>
     </div>
+    <script>
+        let s_Up=document.getElementById("sign-up_Form")
+        // let btn1=document.getElementById("s_up")
+    
+    s_up.addEventListener("submit",(e)=>{
+        e.preventDefault()
+       let name=e.target[0].value;
+       let email=e.target[1].value;
+    //    let pswrd=e.target[0].value;
+       console.log(name,email)
+    // console.log("vnfdc")
+    })
+      </script>
 </body>
 </html>

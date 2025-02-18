@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <link rel="stylesheet" href="./index.css" />
+  <script src="./index.js"></script>
 </head>
 
 <body>
@@ -14,13 +15,13 @@
    <a href="./signup.html"><h1><span>Sign Up</span></h1></a>
   </nav>
   <div class="div1">
-    <h1>The everything app, for Work.</h1>
-    <p>
+    <h1 style="color: white;">The everything app, for Work.</h1>
+    <p style="color: white;">
       One app to allign,collaborate,and work.Designed to boost productivity
       and save teams a day every week.
     </p>
     <button id="btn1">Get started.It's FREE </button>
-    <p>Free Forever.No Credit Card Required.</p>
+    <p style="color:white">Free Forever.No Credit Card Required.</p>
   </div>
   <div class="grp">
     <div>
@@ -247,8 +248,19 @@
     </div>
   </div>
  <div class="div2"><p style="text-align: center;">and so much more.........</p>
-    <button id="btn2" onclick="location.href='./signup.html'">Get started</button>
+    <button id="btn2" onclick="location.href='./signin.html'">Get started</button>
   </div>
+  <script>
+    let s_Up=document.getElementById("sign-up_Form")
+let btn1=document.getElementById("s_up")
+
+btn1.addEventListener("submit",(e)=>{
+   let name=e.target[0].value;
+   let email=e.target[1].value;
+   let pswrd=e.target[0].value;
+   console.log(name,email,pswrd)
+})
+  </script>
 </body>
 
 </html>

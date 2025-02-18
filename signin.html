@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body
+        {
+          /* background-color: rgb(197, 216, 216); */
+          justify-content: center;
+           align-content: center;
+           height: 100vh;
+           display: flex;
+           flex-wrap: wrap;
+           background-image: url("https://as1.ftcdn.net/v2/jpg/11/80/98/16/1000_F_1180981614_blSHKlY7bUnHavP2b3c9ayWHmZGxFg1L.jpg");
+           background-repeat: no-repeat;
+           background-size: cover;
+        
+        }
+        #log-in{
+           /* border: 1px solid; */
+           width: 400px;
+           padding:20px;
+           text-align: center;
+           display: flex;
+           flex-direction: column;
+           box-shadow:0px 0px 9px lightblue;
+           border-radius: 45px;
+           color:greenyellow;
+        }
+        #log-in input{
+            height: 35px;
+            width:90%;
+            border-radius: 9px;
+        }
+        a{
+            display: inline-block;
+            text-decoration: none;
+            color: rgb(249, 55, 6);
+        }
+        a:hover{
+            text-decoration: underline;
+            color:blue;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="log-in">
+        <form action="" class="form">
+        <h1>Login_Form</h1>
+        <input type="email" required placeholder="Enter Email:"><br><br>
+        <input type="password" required placeholder="Password"><br><br>
+        <input type="submit" style="background-color: rgb(43, 226, 104);">
+        <a href="./signup.html"><h3>Create New Account?</h3></a>
+        <a href="./index.html"><h3>Guest Mode</h3></a>
+        </form>
+</div>
+</body>
+</html>

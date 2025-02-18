@@ -1,5 +1,12 @@
+body{
+    background-image: url("https://www.fusionconnect.com/hubfs/images/blog/teams-backgrounds/50-AI-Generated-Background-For-Microsoft-Teams-meeting.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
 *{
     font-family:Arial, Helvetica, sans-serif;
+    /* color: white; */
 }
 .land_page_nav{
     display: flex;
@@ -42,20 +49,30 @@ span{
    /* border: none; */
 }
 .grp div{
-    border: 1px solid gray;
+    border: 2px solid gray;
     text-align: center;
     padding: 25px;
     width:100px;
     border-radius: 10px;
+    color: white;
+    box-shadow: 0px 0px 9px;
+}
+.grp div:hover{
+    transform:scale(1.1,1.1);
+    border-color: green;
 }
 .div2{
     text-align: center;
+    color: white;
 }
 .div2 button{
     padding: 9px;
     width: 160px;
     background-color:greenyellow;
     border-radius: 10px;
+}
+.div2 button:hover{
+    transform: scale(1.1,1.1);
 }
 a{
     text-decoration: none;
