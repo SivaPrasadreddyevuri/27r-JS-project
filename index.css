@@ -2,6 +2,8 @@ body{
     background-image: url("https://www.fusionconnect.com/hubfs/images/blog/teams-backgrounds/50-AI-Generated-Background-For-Microsoft-Teams-meeting.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-color:rgba(169, 169, 169, 0.303);
+    /* color: white; */
 
 }
 *{
@@ -10,21 +12,35 @@ body{
 }
 .land_page_nav{
     display: flex;
-    height: 10px;
-    justify-content: space-around;
-    /* gap: 500px; */
-
+    flex-wrap: wrap;
+    gap:50px ;
+    justify-content: center;
 }
-span{
-    /* border: 1px solid gray; */
-    height:fit-content;
+.land_page_nav h1{
+    color: white;
+   text-shadow: 0px 0px 12px greenyellow;
+}
+ol{
+    height: fit-content;
     padding: 10px;
-    width: 80px;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 90px;
+    width: 60%;
+    height: 22px;
+    justify-content: center;
+    /* border: 1px solid lightgray; */
     border-radius: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    background-color: aqua;
+    background-color: white;
+    opacity: 0.5;
+}
+ol li{
+    list-style-type: none;
+    display: inline;
+}
+li:hover{
+    transform: scale(2.1,2.1);
+   text-shadow: 0px 0px 2px rgb(30, 228, 8);
 }
 .div1{
     text-align: center;
@@ -41,11 +57,11 @@ span{
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
-    width: 40%;
+    width: 50%;
     align-items: center;
    margin: auto;
    padding: 35px;
-   box-shadow: 0px 0px 2px green;
+   box-shadow: 0px 0px 12px;
    border-color: rgb(30, 228, 8);
    border-radius: 10px;
    /* background-color:whitesmoke; */
@@ -59,9 +75,6 @@ span{
     border-radius: 10px;
     color: white;
     box-shadow: 0px 0px 9px;
-    /* display: flex; */
-    /* flex-direction:column; */
-    /* align-content: end; */
 }
 .grp div:hover{
     transform:scale(1.1,1.1);
@@ -77,14 +90,13 @@ span{
     background-color:greenyellow;
     border-radius: 10px;
 }
-.div2 button:hover{
-    transform: scale(1.1,1.1);
+.div2 button:active{
+    transform: scale(0.9,0.9);
 }
 a{
     text-decoration: none;
     color:black;
 }
-a:hover{
-    text-decoration: underline;
-    color:blue;
+a:active{
+    transform: scale(0.9,0.9);
 }
