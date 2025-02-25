@@ -54,21 +54,8 @@
             <input type="email" placeholder="example@gmail.com" required><br><br>
             <input type="password"  placeholder="Password" required><br><br>
             <input type="submit" value="Sign-Up"  style="background-color:rgb(6, 154, 252); border: none;" id="s_up">
-           <a href="./signin.html"><h3>Already Have An Account?</h3></a>
+           <h3>Already Have An Account?<a href="./signin.html"> Sign In</a></h3>
         </form>
     </div>
-    <script>
-        let s_Up=document.getElementById("sign-up_Form")
-        // let btn1=document.getElementById("s_up")
-    
-    s_up.addEventListener("submit",(e)=>{
-        e.preventDefault()
-       let name=e.target[0].value;
-       let email=e.target[1].value;
-    //    let pswrd=e.target[0].value;
-       console.log(name,email)
-    // console.log("vnfdc")
-    })
-      </script>
 </body>
 </html>

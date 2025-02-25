@@ -1,24 +1,29 @@
 body{
-    background-image: url("https://www.fusionconnect.com/hubfs/images/blog/teams-backgrounds/50-AI-Generated-Background-For-Microsoft-Teams-meeting.png");
+    background-image: url("https://static.vecteezy.com/system/resources/previews/006/262/477/non_2x/white-abstract-background-backdrop-for-presentation-design-for-website-free-photo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-color:rgba(169, 169, 169, 0.303);
-    /* color: white; */
-
 }
 *{
     font-family:Arial, Helvetica, sans-serif;
-    /* color: white; */
 }
 .land_page_nav{
-    display: flex;
-    flex-wrap: wrap;
-    gap:50px ;
-    justify-content: center;
+   position: fixed;
+   display:flex;
+   flex-wrap: wrap;
+   /* gap: 60px; */
+   justify-content: space-evenly;
+   width: 100vw;
+   margin-top:-80px;
+}
+.land_page_nav a h3{
+    /* border: 2px solid; */
+    padding: 10px;
+    background-color:rgba(139, 176, 239, 0.76);
+    border-radius: 10px;
 }
 .land_page_nav h1{
-    color: white;
-   text-shadow: 0px 0px 12px greenyellow;
+    /* color: white; */
+   text-shadow: 0px 0px 1px;
 }
 ol{
     height: fit-content;
@@ -28,11 +33,10 @@ ol{
     gap: 90px;
     width: 60%;
     height: 22px;
-    justify-content: center;
-    /* border: 1px solid lightgray; */
+    justify-content:space-evenly;
     border-radius: 10px;
-    background-color: white;
-    opacity: 0.5;
+    border: 1px solid;
+    background-color: azure;
 }
 ol li{
     list-style-type: none;
@@ -61,7 +65,7 @@ li:hover{
     align-items: center;
    margin: auto;
    padding: 35px;
-   box-shadow: 0px 0px 12px;
+   box-shadow: 0px 0px 5px;
    border-color: rgb(30, 228, 8);
    border-radius: 10px;
    /* background-color:whitesmoke; */
@@ -73,8 +77,8 @@ li:hover{
     padding: 25px;
     width:100px;
     border-radius: 10px;
-    color: white;
-    box-shadow: 0px 0px 9px;
+    /* color: white; */
+    box-shadow: 0px 0px 0px;
 }
 .grp div:hover{
     transform:scale(1.1,1.1);
@@ -82,7 +86,7 @@ li:hover{
 }
 .div2{
     text-align: center;
-    color: white;
+    /* color: white; */
 }
 .div2 button{
     padding: 9px;
@@ -101,20 +105,24 @@ a:active{
     transform: scale(0.9,0.9);
 }
 .div3{
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 80px;
-    justify-content: space-evenly;
-    /* color:white; */
-    background-color: whitesmoke;
-    width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   padding: 20px;
+   justify-content: center;
+   width: 50%;
+   margin: auto;
+   gap: 10px;
 }
 .div3 div{
-    background-color: transparent;
-    height:fit-content;
-    /* box-shadow: 0px 0px 12px ; */
-    border-radius: 20px;
     text-align: center;
-    /* background-color: transparent; */
+}
+.div4{
+    background-image: url("https://flowcentric.com/wp-content/uploads/2021/10/Banner19.png");
+    height: 300px;
+    width: 600px;
+    margin: auto;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
 }
