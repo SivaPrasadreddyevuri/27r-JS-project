@@ -59,8 +59,10 @@
         <h1 id="signup-title">Seconds to sign up!</h1>
         <form action="" id="sign-up_Form" >
             <input type="text" placeholder="Full Name" required autofocus /><br /><br />
-            <input type="email" placeholder="example@gmail.com" required /><br /><br />
-            <input type="password" placeholder="Password" required /><br /><br />
+            <input type="email" placeholder="example@gmail.com" required id="signupEmail"/><br /><br>
+            <span id="signupEmail_err"></span>
+            <input type="password" placeholder="Password" required  id="signupPassword"/><br /><br />
+            <span id="signupPassword_err"></span>
             <input type="submit" value="Sign-Up" style="background-color: rgb(6, 154, 252); border: none" id="s_up" />
             <h3>Already Have An Account?<a id="do_signin"> Sign In</a></h3>
         </form>
@@ -71,7 +73,7 @@
             <input type="password" required placeholder="Password" /><br /><br />
             <input type="submit" style="background-color: rgb(43, 226, 104)" />
             <h3>Create New Account? <a id="do_signup">Sign-Up</a></h3>
-            <a href="./home.html">
+            <a href="./homepage.html">
                 <h3>Guest Mode</h3>
             </a>
         </form>
