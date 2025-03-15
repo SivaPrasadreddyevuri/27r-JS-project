@@ -114,6 +114,6 @@ signin.addEventListener("submit", (e) => {
       location.replace("./homepage.html");
     })
     .catch((e) => {
-      alert("Invalid Credentials!!!! Sorryyyyy!");
+      alert("Login Failed \n Your Email or Password is Incorrect \n Please try Again");
     });
 });

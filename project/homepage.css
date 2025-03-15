@@ -41,6 +41,20 @@
     transform: scale(2.1,2.1);
    text-shadow: 0px 0px 2px rgb(30, 228, 8);
 }
+#logoutButton{
+    height:10%;
+    margin-top: 20px;
+    /* background-color:transparent; */
+    /* border: none; */
+    padding:7px;
+    border-radius: 15px;
+}
+#logoutButton:hover{
+    border: 2px solid red;
+    text-decoration: underline;
+    text-decoration-color: red;
+    cursor: pointer;
+}
 .div1{
     text-align: center;
     margin-top:90px;
