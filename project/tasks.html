@@ -1,112 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Task Manager</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 20px;
-    }
-
-    h1 {
-      color: #333;
-    }
-
-    input {
-      padding: 10px;
-      width: 200px;
-      margin: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    button {
-      padding: 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 20px;
-    }
-
-    li {
-      background: #f9f9f9;
-      margin: 5px auto;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      max-width: 300px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    li button {
-      background-color: #ff4d4d;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-    }
-
-    li button:hover {
-      background-color: #e60000;
-    }
-  </style>
-</head>
-<body>
-  <h1>Simple Task Manager</h1>
-
-  <!-- Input to Add Tasks -->
-  <input type="text" id="taskInput" placeholder="Enter a task">
-  <button onclick="addTask()">Add Task</button>
-
-  <!-- Task List -->
-  <ul id="taskList"></ul>
-
-  <script>
-    // Function to Add Tasks
-    function addTask() {
-      const taskInput = document.getElementById("taskInput");
-      const taskList = document.getElementById("taskList");
-      const taskText = taskInput.value.trim();
-
-      if (taskText) {
-        // Create a new list item
-        const li = document.createElement("li");
-        li.innerHTML = `
-          ${taskText}
-          <button onclick="deleteTask(this)">Delete</button>
-        `;
-
-        // Add the new task to the list
-        taskList.appendChild(li);
-
-        // Clear the input box
-        taskInput.value = "";
-      } else {
-        alert("Please enter a task!");
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <script src="tasks.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
       }
-    }
+      #heading {
+        /* background-color: #f0f0f0; */
+        padding: 20px;
+        /* border-radius: 5px; */
+        margin: 20px auto;
+        width: 80%;
+        max-width: 600px;
+        font-size: 24px;
+        color: green;
+      }
+      @keyframes scrollText {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(100%);
+        }
+      }
 
-    // Function to Delete Tasks
-    function deleteTask(button) {
-      const li = button.parentElement; // Find the parent list item
-      li.remove(); // Remove the task from the list
-    }
-  </script>
-</body>
+      #marquee {
+        display: inline-block;
+        white-space: nowrap;
+        animation: scrollText 5s linear infinite;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 10px;
+        margin: 5px;
+      }
+      button:hover {
+        background-color: #45a049;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      button:active {
+        background-color: #3e8e41;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transform: translateY(2px);
+      }
+      #creating_tasks {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 5px;
+        margin: 20px auto;
+        width: 80%;
+        max-width: 600px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      form input,
+      form textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="heading" style="text-align: center">
+      <h1>Dashboard</h1>
+      <p id="marquee">Welcome to the TaskMate dashboard!</p>
+    </div>
+
+    <div id="buttons" style="text-align: center; margin-top: 20px">
+      <button id="ct_btn" onclick="Task_form()">Create Task</button>
+      <button id="view_btn" onclick="viewTasks()">View</button>
+      <button id="sf_btn">Search&Filter</button>
+      <button id="team_btn">Team</button>
+    </div>
+
+    <div id="add_task_form">
+      <form style="max-width: 600px; margin: auto">
+        <label for="taskName">Task Name:</label><br />
+        <input type="text" id="taskName" name="taskName" required /><br /><br />
+
+        <label for="taskDescription">Task Description:</label><br />
+        <textarea
+          id="taskDescription"
+          name="taskDescription"
+          rows="4"
+          required
+        ></textarea
+        ><br /><br />
+        <label for="assignedTo">Assigned To:</label><br />
+        <input
+          type="text"
+          id="assignedTo"
+          name="assignedTo"
+          required
+        /><br /><br />
+
+        <label for="dueDate">Due Date:</label><br />
+        <input type="date" id="dueDate" name="dueDate" required /><br /><br />
+         <button id="addtask_btn" onclick="createtask()">Add Task</button>
+      </form>
+    </div>
+  </body>
 </html>
