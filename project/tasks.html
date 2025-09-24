@@ -1,112 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Task Manager</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 20px;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <script src="tasks.js" defer></script>
+    <link rel="stylesheet" href="tasks.css" />
+  </head>
+  <body>
+    <div id="heading" style="text-align: center">
+      <h1>Dashboard</h1>
+      <p id="marquee">Welcome to the TaskMate dashboard!</p>
+    </div>
 
-    h1 {
-      color: #333;
-    }
+    <div id="buttons" style="text-align: center; margin-top: 20px">
+      <button id="ct_btn">Create Task</button>
+      <button id="view_btn">View</button>
+      <button id="sf_btn">Search&Filter</button>
+      <button id="team_btn">Team</button>
+    </div>
 
-    input {
-      padding: 10px;
-      width: 200px;
-      margin: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
+    <div id="form_container">
+      <form id="task_form">
+        <label for="taskName">Task Name:</label><br />
+        <input type="text" id="taskName" name="taskName" required autofocus  /><br /><br />
 
-    button {
-      padding: 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        <label for="taskDescription">Task Description:</label><br />
+        <textarea
+          id="taskDescription"
+          name="taskDescription"
+          rows="4"
+        ></textarea
+        ><br /><br />
+        <label for="assignedTo">Assigned To:</label><br />
+        <input
+          type="text"
+          id="assignedTo"
+          name="assignedTo"
+          required
+        /><br /><br />
 
-    button:hover {
-      background-color: #45a049;
-    }
+        <label for="dueDate">Due Date:</label><br />
+        <input type="date" id="dueDate" name="dueDate" required /><br /><br />
+        <button id="add_task_btn">Add Task</button>
+      </form>
+    </div>
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 20px;
-    }
-
-    li {
-      background: #f9f9f9;
-      margin: 5px auto;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      max-width: 300px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    li button {
-      background-color: #ff4d4d;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-    }
-
-    li button:hover {
-      background-color: #e60000;
-    }
-  </style>
-</head>
-<body>
-  <h1>Simple Task Manager</h1>
-
-  <!-- Input to Add Tasks -->
-  <input type="text" id="taskInput" placeholder="Enter a task">
-  <button onclick="addTask()">Add Task</button>
-
-  <!-- Task List -->
-  <ul id="taskList"></ul>
-
-  <script>
-    // Function to Add Tasks
-    function addTask() {
-      const taskInput = document.getElementById("taskInput");
-      const taskList = document.getElementById("taskList");
-      const taskText = taskInput.value.trim();
-
-      if (taskText) {
-        // Create a new list item
-        const li = document.createElement("li");
-        li.innerHTML = `
-          ${taskText}
-          <button onclick="deleteTask(this)">Delete</button>
-        `;
-
-        // Add the new task to the list
-        taskList.appendChild(li);
-
-        // Clear the input box
-        taskInput.value = "";
-      } else {
-        alert("Please enter a task!");
-      }
-    }
-
-    // Function to Delete Tasks
-    function deleteTask(button) {
-      const li = button.parentElement; // Find the parent list item
-      li.remove(); // Remove the task from the list
-    }
-  </script>
-</body>
+    <div id="resultsContainer">
+      <!-- Results will be displayed here -->
+    </div>
+  </body>
 </html>
