@@ -1,97 +1,88 @@
-// JavaScript code for task management application
-// This code handles task creation, filtering, and viewing tasks.
-// It also manages the display of task-related elements on the page.
-
-
+// Selecting elements
 let ct_btn = document.getElementById("ct_btn");
 let team_btn = document.getElementById("team_btn");
-let view_btn = document.getElementById("vt_btn");
-let sf_btn=document.getElementById("sf_btn");
+let view_btn = document.getElementById("view_btn");
+let sf_btn = document.getElementById("sf_btn");
 let add_task_btn = document.getElementById("add_task_btn");
-let add_task_form = document.getElementById("add_task_form");
 
+let form_container = document.getElementById("form_container");
+let taskName = document.getElementById("taskName");
+let taskDescription = document.getElementById("taskDescription");
+let dueDate = document.getElementById("dueDate");
+let assignedTo = document.getElementById("assignedTo");
+let resultsContainer = document.getElementById("resultsContainer");
 
-let task_Name = document.getElementById("task_name");
-let task_description = document.getElementById("taskDescription");
-let task_due_date = document.getElementById("taskDueDate");
-let taskAssigned_to = document.getElementById("assignedTo");
+// Load tasks from localStorage if available
+let taskList = JSON.parse(localStorage.getItem("taskDetails")) || [];
 
-let taskLists1 = []
-console.log("taskLists1", taskLists1);
-// let taskLists= localStorage.setItem("taskListsDetails", JSON.stringify(taskLists1));
+ct_btn.addEventListener("click", () => {
+  form_container.style.display = "block";
+  resultsContainer.style.display = "none";
+});
 
+add_task_btn.addEventListener("click", (e) => {
+  e.preventDefault();
 
-// const Task_form=()=>{
-//     add_task_form.style.display = "inline-block";
-// }
+  if (
+    !taskName.value ||
+    !taskDescription.value ||
+    !assignedTo.value ||
+    !dueDate.value
+  ) {
+    alert("Please fill in all fields.");
+    return;
+  }
 
-const createtask=()=>{
-   if(!(task_Name.value.trim()|| task_description.value.trim()||
-    task_due_date.value.trim()|| taskAssigned_to.value.trim()))
-    {
-        alert("Please fill all the fields");
-        return;
-    
-    }
-    else{
-        let tasks={
-            name: task_Name.value.trim(),
-            description: task_description.value.trim(),
-            due_date: task_due_date.value.trim(),
-            assigned_to: taskAssigned_to.value.trim()
-        }
-        taskLists1.push(tasks);
-        task_Name.value = "";   
-        task_description.value = "";
-        task_due_date.value = "";
-        taskAssigned_to.value = "";
-        add_task_form.style.display = "none";
-        alert("Task Created Successfully");
-        viewTasks();
-    }
-    
-}
+  // Create task object and add to taskList array
+  let taskDetails = {
+    Task: taskName.value,
+    Description: taskDescription.value,
+    AssignedTo: assignedTo.value,
+    DueDate: dueDate.value,
+  };
+  // Add the new task to the taskList array
+  taskList.push(taskDetails);
 
-// const filter=()=>{
-// const filteredTasks=taskLists.filter(TaskName=>
-//         TaskName.includes(filter_item.value.trim())      
-// )
-// if(filteredTasks.length>0){
-// filter_display.innerText=filteredTasks.join("\n")
+  //save to localStorage
+  localStorage.setItem("taskDetails", JSON.stringify(taskList));
+  alert("Task Added Successfully");
 
-// }
-// else{
-//     filter_display.innerText="NO Records Found"
-// }
-// filter_item.value=""
-// }
+  // cleraing the form
+  taskName.value = "";
+  taskDescription.value = "";
+  assignedTo.value = "";
+  dueDate.value = "";
+});
 
-const viewTasks=()=>{
-    alert("Viewing Tasks");
-    // add_task_form.style.display="none"
-    // let taskDisplay = document.getElementById("task_display");
-    // taskDisplay.innerHTML = ""; // Clear previous tasks
+view_btn.addEventListener("click", () => {
+  resultsContainer.style.display = "block";
+  form_container.style.display = "none";
 
-    // if (taskLists.length === 0) {
-    //     taskDisplay.innerText = "No tasks available.";
-    //     return;
-    // }
-    // taskLists.forEach((task, index) => {
-    //     let taskItem = document.createElement("div");
-    //     taskItem.className = "task-item";
-    //     taskItem.innerHTML = `
-    //         <h3>Task ${index + 1}</h3>
-    //         <p><strong>Name:</strong> ${task.name}</p>
-    //         <p><strong>Description:</strong> ${task.description}</p>
-    //         <p><strong>Due Date:</strong> ${task.due_date}</p>
-    //         <p><strong>Assigned To:</strong> ${task.assigned_to}</p>
-    //         <button onclick="deleteTask(${index})">Delete Task</button>
-    //     `;
-    //     taskDisplay.appendChild(taskItem);  
+  if (taskList.length === 0) {
+    resultsContainer.innerHTML =
+      "<p>No tasks available. Please add a task.</p>";
+  } else {
+    let Data = JSON.parse(localStorage.getItem("taskDetails"));
+    resultsContainer.innerHTML = ""; // Clear previous results
 
-    // });
+    Data.forEach((task, index) => {
+      resultsContainer.innerHTML = " "; // Clear previous results
+      resultsContainer.innerHTML += `
 
-}
-// filter_item.addEventListener("focus",()=>{
-//     filter_display.innerText=""
-// })
+        <h3>Task ${index + 1}: ${task.Task}</h3>
+        <p><strong>Description:</strong> ${task.Description}</p>
+        <p><strong>Assigned To:</strong> ${task.AssignedTo}</p>
+        <p><strong>Due Date:</strong> ${task.DueDate}</p>
+        <button id="edit_btn">Edit</button>
+        <button id="dlt_btn">Delete</button>
+      `;
+      let edit_btn = document.getElementById("edit_btn");
+      // let dlt_btn = document.getElementById("dlt_btn");
+      edit_btn.addEventListener("click", () => {
+        
+
+      });
+      
+    });
+  }
+});

@@ -4,79 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-    <script src="tasks.js"></script>
-    <style>
-      * {
-        box-sizing: border-box;
-        font-family: sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      #heading {
-        /* background-color: #f0f0f0; */
-        padding: 20px;
-        /* border-radius: 5px; */
-        margin: 20px auto;
-        width: 80%;
-        max-width: 600px;
-        font-size: 24px;
-        color: green;
-      }
-      @keyframes scrollText {
-        from {
-          transform: translateX(-100%);
-        }
-        to {
-          transform: translateX(100%);
-        }
-      }
-
-      #marquee {
-        display: inline-block;
-        white-space: nowrap;
-        animation: scrollText 5s linear infinite;
-      }
-      button {
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        padding: 10px;
-        margin: 5px;
-      }
-      button:hover {
-        background-color: #45a049;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-      button:active {
-        background-color: #3e8e41;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        transform: translateY(2px);
-      }
-      #creating_tasks {
-        background-color: #f9f9f9;
-        padding: 20px;
-        border-radius: 5px;
-        margin: 20px auto;
-        width: 80%;
-        max-width: 600px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      form input,
-      form textarea {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-      }
-    </style>
+    <script src="tasks.js" defer></script>
+    <link rel="stylesheet" href="tasks.css" />
   </head>
   <body>
     <div id="heading" style="text-align: center">
@@ -85,23 +14,22 @@
     </div>
 
     <div id="buttons" style="text-align: center; margin-top: 20px">
-      <button id="ct_btn" onclick="Task_form()">Create Task</button>
-      <button id="view_btn" onclick="viewTasks()">View</button>
+      <button id="ct_btn">Create Task</button>
+      <button id="view_btn">View</button>
       <button id="sf_btn">Search&Filter</button>
       <button id="team_btn">Team</button>
     </div>
 
-    <div id="add_task_form">
-      <form style="max-width: 600px; margin: auto">
+    <div id="form_container">
+      <form id="task_form">
         <label for="taskName">Task Name:</label><br />
-        <input type="text" id="taskName" name="taskName" required /><br /><br />
+        <input type="text" id="taskName" name="taskName" required autofocus  /><br /><br />
 
         <label for="taskDescription">Task Description:</label><br />
         <textarea
           id="taskDescription"
           name="taskDescription"
           rows="4"
-          required
         ></textarea
         ><br /><br />
         <label for="assignedTo">Assigned To:</label><br />
@@ -114,8 +42,12 @@
 
         <label for="dueDate">Due Date:</label><br />
         <input type="date" id="dueDate" name="dueDate" required /><br /><br />
-         <button id="addtask_btn" onclick="createtask()">Add Task</button>
+        <button id="add_task_btn">Add Task</button>
       </form>
+    </div>
+
+    <div id="resultsContainer">
+      <!-- Results will be displayed here -->
     </div>
   </body>
 </html>
