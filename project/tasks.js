@@ -62,10 +62,10 @@ view_btn.addEventListener("click", () => {
     resultsContainer.innerHTML =
       "<p>No tasks available. Please add a task.</p>";
   } else {
-    let Data = JSON.parse(localStorage.getItem("taskDetails"));
-    resultsContainer.innerHTML = ""; // Clear previous results
+    // Retrieve tasks from localStorage
+    let taskList = JSON.parse(localStorage.getItem("taskDetails"));
 
-    Data.forEach((task, index) => {
+    taskList.forEach((task, index) => {
       resultsContainer.innerHTML = " "; // Clear previous results
       resultsContainer.innerHTML += `
 
@@ -79,10 +79,33 @@ view_btn.addEventListener("click", () => {
       let edit_btn = document.getElementById("edit_btn");
       // let dlt_btn = document.getElementById("dlt_btn");
       edit_btn.addEventListener("click", () => {
-        
-
+        let newTaskName = prompt("Enter New Task Name", task.Task);
+        let newTaskDescription = prompt(
+          "Enter New Task Description",
+          task.Description
+        );
+        let newAssignedTo = prompt("Enter New Assigned To", task.AssignedTo);
+        let newDueDate = prompt("Enter New Due Date", task.DueDate);
+        if (newTaskName && newTaskDescription && newAssignedTo && newDueDate) {
+          taskList[index] = {
+            Task: newTaskName,
+            Description: newTaskDescription,
+            AssignedTo: newAssignedTo,
+            DueDate: newDueDate,
+          };
+          localStorage.setItem("taskDetails", JSON.stringify(taskList));
+          alert("Task Updated Successfully");
+          view_btn.click(); // Refreshing the view list
+        }
       });
-      
+      dlt_btn.addEventListener("click", () => {
+        taskList.splice(index, 1);
+        localStorage.setItem("taskDetails", JSON.stringify(taskList));
+        alert("Task Deleted Successfully");
+      });
     });
   }
 });
+
+
+
